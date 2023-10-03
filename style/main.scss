@@ -1,0 +1,45 @@
+.translatestyler-container {
+
+    &.show-as-dropdown.control-expands-up {
+        .trp-language-switcher:hover .trp-ls-shortcode-language{
+            top: unset;
+            bottom:0;
+        }
+    }
+    &.show-as-list {
+        .trp-ls-shortcode-language {
+            width: auto;
+            display: flex;
+            height: auto;
+            visibility: unset;
+        }
+
+        .trp-ls-shortcode-current-language {
+            display: none;
+        }
+
+        .trp-language-switcher:hover {
+            max-height: unset;
+            padding: 4px 13px;
+            height: unset;
+            overflow-y: unset;
+            position: relative;
+            left: unset;
+            top: unset;
+            display: unset;
+            min-height: unset;
+        }
+    }
+
+    .ts-trp-ls-shortcode-language {
+        display: flex;
+
+    }
+
+    &.list-direction-column {
+        .ts-trp-ls-shortcode-language {
+            flex-direction: column;
+        }
+
+    }
+}
