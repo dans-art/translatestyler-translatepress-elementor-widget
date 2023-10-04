@@ -27,6 +27,10 @@
  * License: GPLv3 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * 
+ * @todo: Organize the files
+ * @todo: Check if Translatepress is installed
+ * @todo: Add style controls for list style
+ *  @todo:Publish addon
  */
 
 if (!defined('ABSPATH')) {
