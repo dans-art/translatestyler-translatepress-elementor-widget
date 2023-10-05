@@ -1,4 +1,5 @@
-===  * Plugin Name: Translatestyler - Elementor Widget for Translatpress ===
+===  Plugin Name: Translatestyler - Elementor Widget for Translatpress ===
+
 Contributors: dansart
 Donate link: https://paypal.me/dansart13
 Tags: translatepress, elementor, widget, addon, style, tools, helper
