@@ -5,7 +5,16 @@ if (!defined('ABSPATH')) {
 
 class Transtyler_Language_Switcher extends TRP_Language_Switcher
 {
-	public function get_language_switcher($atts = [], $template_file)
+	/**
+	 * Displays the language switcher. Original code from the Translatepress plugin.
+	 * Modifications made at the end after DA-Edits
+	 *
+	 * @param array $atts
+	 * @param [type] $template_file
+	 * @param Transstyle_Widget $transstyle 
+	 * @return void
+	 */
+	public function get_language_switcher($atts = [], $template_file, $transstyle)
 	{
 		ob_start();
 
@@ -54,8 +63,17 @@ class Transtyler_Language_Switcher extends TRP_Language_Switcher
 
 		$is_editor = isset($shortcode_attributes['is_editor']) && $shortcode_attributes['is_editor'] === 'true';
 
+/*
+		s($shortcode_settings);*/
+		/** DA-EDITS */
+		$shortcode_settings['full_names'] = boolval($transstyle ->get_settings_for_display('full_names'));
+		$shortcode_settings['short_names'] = boolval($transstyle ->get_settings_for_display('short_names'));
+		$shortcode_settings['flags'] = boolval($transstyle ->get_settings_for_display('flags'));
+		$shortcode_settings['no_html'] = boolval($transstyle ->get_settings_for_display('no_html'));
+		$show_current_language = boolval($transstyle ->get_settings_for_display('show_current'));
+
 		$filename = (!empty($template_file)) ? '/' . $template_file : '/language-switcher-shortcode.php';
-		require TRANSSTYLE_ROOT_PATH . $filename;
+		require TRANSSTYLE_ROOT_PATH .'/template'.$filename;
 
 		return ob_get_clean();
 	}

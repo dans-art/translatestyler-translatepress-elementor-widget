@@ -20,7 +20,7 @@ class Transstyle_Widget extends \Elementor\Widget_Base
         return 'eicon-page-transition';
     }
 
-    public function get_custom_help_url()
+    public function __get_custom_help_url()
     {
     }
 
@@ -34,7 +34,7 @@ class Transstyle_Widget extends \Elementor\Widget_Base
         return ['translation', 'translate', 'Translatepress', 'language', 'flag'];
     }
 
-    public function get_script_depends()
+    public function __get_script_depends()
     {
     }
 
@@ -45,6 +45,7 @@ class Transstyle_Widget extends \Elementor\Widget_Base
 
     protected function register_controls()
     {
+
         $this->start_controls_section(
             'link_style_section',
             [
@@ -114,25 +115,11 @@ class Transstyle_Widget extends \Elementor\Widget_Base
         $this->end_controls_tabs();
 
         $this->add_control(
-			'hr',
-			[
-				'type' => \Elementor\Controls_Manager::DIVIDER,
-			]
-		);
-
-        $this->add_control(
-            'size',
+            'hr',
             [
-                'type' => \Elementor\Controls_Manager::NUMBER,
-                'label' => esc_html__('Size', 'transtyle'),
-                'placeholder' => '0',
-                'min' => 0,
-                'max' => 100,
-                'step' => 1,
-                'default' => 50,
+                'type' => \Elementor\Controls_Manager::DIVIDER,
             ]
         );
-
 
         $this->add_control(
             'show_as',
@@ -196,7 +183,71 @@ class Transstyle_Widget extends \Elementor\Widget_Base
                 'default' => 'down',
             ]
         );
-        $this -> end_controls_section();
+        $this->add_control(
+            'hr',
+            [
+                'type' => \Elementor\Controls_Manager::DIVIDER,
+            ]
+        );
+        $this->add_control(
+            'show_current',
+            [
+                'label' => esc_html__('Show the current language', 'transtyle'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'transtyle'),
+                'label_off' => esc_html__('No', 'transtyle'),
+                'return_value' => true,
+                'default' => true,
+                'condition' => [
+                    'show_as' => 'list',
+                ],
+            ]
+        );
+        $this->add_control(
+            'short_names',
+            [
+                'label' => esc_html__('Short Names', 'transtyle'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'transtyle'),
+                'label_off' => esc_html__('No', 'transtyle'),
+                'return_value' => true,
+                'default' => false,
+            ]
+        );
+        $this->add_control(
+            'full_names',
+            [
+                'label' => esc_html__('Display full names', 'transtyle'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'transtyle'),
+                'label_off' => esc_html__('No', 'transtyle'),
+                'return_value' => true,
+                'default' => true,
+            ]
+        );
+        $this->add_control(
+            'no_html',
+            [
+                'label' => esc_html__('No HTML', 'transtyle'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'transtyle'),
+                'label_off' => esc_html__('No', 'transtyle'),
+                'return_value' => true,
+                'default' => false,
+            ]
+        );
+        $this->add_control(
+            'flags',
+            [
+                'label' => esc_html__('Show Flags', 'transtyle'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Show', 'transtyle'),
+                'label_off' => esc_html__('Hide', 'transtyle'),
+                'return_value' => true,
+                'default' => true,
+            ]
+        );
+        $this->end_controls_section();
     }
 
     /**
@@ -206,7 +257,7 @@ class Transstyle_Widget extends \Elementor\Widget_Base
      */
     protected function render()
     {
-        $path = TRANSSTYLE_ROOT_PATH . '/render.php';
+        $path = TRANSSTYLE_ROOT_PATH . '/includes/render.php';
         include($path);
     }
 
@@ -216,7 +267,7 @@ class Transstyle_Widget extends \Elementor\Widget_Base
      *
      * @return void
      */
-    protected function content_template()
+    protected function __content_template()
     {
     }
 

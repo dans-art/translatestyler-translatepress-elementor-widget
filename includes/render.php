@@ -3,13 +3,18 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
+if(!is_plugin_active('translatepress-multilingual/index.php')){
+    echo __('This Widget requires TranslatePress to be installed','transtyle');
+    return;
+}
+
 $classes = $this->get_classes_from_settings();
 
-/** Include a custom version of the language switcher */
-require_once(TRANSSTYLE_ROOT_PATH . '/language-switcher.php');
-$translatepress = new TRP_Translate_Press();
+require_once(TRANSSTYLE_ROOT_PATH . '/includes/language-switcher-class.php');
+$translatepress = TRP_Translate_Press::get_trp_instance();
 $translatepress_settings = new TRP_Settings();
 $styler = new Transtyler_Language_Switcher($translatepress_settings->get_settings(), $translatepress);
+
 
 $template_file = '';
 if ($this->get_settings_for_display('show_as') === 'list') {
@@ -21,5 +26,5 @@ if ($this->get_settings_for_display('show_as') === 'list') {
 <div class="translatestyler-container <?php echo implode(' ', $classes) ?>">
     <?php //echo do_shortcode('[language-switcher]'); 
     ?>
-    <?php echo $styler->get_language_switcher([], $template_file); ?>
+    <?php echo $styler->get_language_switcher([], $template_file, $this); ?>
 </div>
