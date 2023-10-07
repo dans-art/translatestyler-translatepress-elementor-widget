@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Plugin Name: Translatestyler - Elementor Widget for Translatpress
- * Description: Helps you style the Translatepress menu. You can add it as a regular Elementor widget and change the way it is displayed.
+ * Plugin Name: Translatestyler - Elementor Widget for TranslatePress
+ * Description: Helps you style the TranslatePress menu. You can add it as a regular Elementor widget and change the way it is displayed.
  * Plugin URI: https://dev.dans-art.ch/
  * Contributors: dansart
  * Contributors URL: http://dev.dans-art.ch
  * Tags: translatepress, elementor, widget, addon, style, tools, helper
- * Version: 0.9
- * Stable tag: 0.9
+ * Version: 1.0
+ * Stable tag: 1.0
  * 
  * Requires at least: 5.4.0
  * Tested up to: 6.3.1
@@ -26,6 +26,7 @@
 
  * License: GPLv3 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * 
  * 
  */
 
@@ -48,9 +49,6 @@ add_action(
 
 
 add_action('wp_enqueue_scripts', function () {
-
-	/* Scripts */
-	//wp_register_script('widget-script-1', plugins_url('assets/js/widget-script-1.js', __FILE__));
 
 	/* Styles */
 	wp_register_style('style-transtyle', TRANSSTYLE_ROOT_URL.'style/main.css');

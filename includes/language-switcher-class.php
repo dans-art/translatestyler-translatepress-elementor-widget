@@ -63,8 +63,6 @@ class Transtyler_Language_Switcher extends TRP_Language_Switcher
 
 		$is_editor = isset($shortcode_attributes['is_editor']) && $shortcode_attributes['is_editor'] === 'true';
 
-/*
-		s($shortcode_settings);*/
 		/** DA-EDITS */
 		$shortcode_settings['full_names'] = boolval($transstyle ->get_settings_for_display('full_names'));
 		$shortcode_settings['short_names'] = boolval($transstyle ->get_settings_for_display('short_names'));

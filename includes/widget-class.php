@@ -162,6 +162,95 @@ class Transstyle_Widget extends \Elementor\Widget_Base
             ]
         );
 
+        $this->add_responsive_control(
+            'list_distance',
+            [
+                'label' => esc_html__('List elements distance', 'transtyle'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem', 'custom'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 20,
+                        'step' => 1,
+                    ],
+                    'em' => [
+                        'min' => 0,
+                        'max' => 10,
+                        'step' => 0.5,
+                    ],
+                    'rem' => [
+                        'min' => 0,
+                        'max' => 10,
+                        'step' => 0.5,
+                    ]
+                ],
+                'default' => [
+                    'unit' => 'em',
+                    'size' => 1,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .list-direction-column .ts-trp-ls-shortcode-language' => 'gap: {{SIZE}}{{UNIT}}',
+                    '{{WRAPPER}} .list-direction-row .ts-trp-ls-shortcode-language' => 'gap: {{SIZE}}{{UNIT}}',
+                ],
+                'condition' => [
+                    'show_as' => 'list',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'border_color',
+            [
+                'label' => esc_html__('Border Color', 'transtyle'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#f00',
+                'selectors' => [
+                    '{{WRAPPER}} .trp-ls-shortcode-current-language' => 'border-color: {{VALUE}}',
+                    '{{WRAPPER}} .trp-ls-shortcode-language' => 'border-color: {{VALUE}}',
+                ],
+                'condition' => [
+                    'show_as' => 'dropdown',
+                ],
+            ]
+        );
+        $this->add_control(
+            'border_width',
+            [
+                'label' => esc_html__('Border width', 'transtyle'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem', 'custom'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 10,
+                        'step' => 0.5,
+                    ],
+                    'em' => [
+                        'min' => 0,
+                        'max' => 5,
+                        'step' => 0.1,
+                    ],
+                    'rem' => [
+                        'min' => 0,
+                        'max' => 5,
+                        'step' => 0.1,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 1.5,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .trp-ls-shortcode-current-language' => 'border-width: {{SIZE}}{{UNIT}}',
+                    '{{WRAPPER}} .trp-ls-shortcode-language' => 'border-width: {{SIZE}}{{UNIT}}',
+                ],
+                'condition' => [
+                    'show_as' => 'dropdown',
+                ],
+            ]
+        );
+
         $this->add_control(
             'dropdown_expands',
             [
@@ -183,6 +272,90 @@ class Transstyle_Widget extends \Elementor\Widget_Base
                 'default' => 'down',
             ]
         );
+        $this->add_control(
+            'hr',
+            [
+                'type' => \Elementor\Controls_Manager::DIVIDER,
+            ]
+        );
+        $this->add_responsive_control(
+            'dropdown_width',
+            [
+                'label' => esc_html__('Dropdown width', 'transtyle'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%', 'vw', 'rem', 'custom'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 1000,
+                        'step' => 5,
+                    ],
+                    'em' => [
+                        'min' => 0,
+                        'max' => 20,
+                        'step' => 1,
+                    ],
+                    'rem' => [
+                        'min' => 0,
+                        'max' => 20,
+                        'step' => 1,
+                    ],
+                    '%' => [
+                        'min' => 0,
+                        'max' => 100,
+                        'step' => 1,
+                    ],
+                    'vw' => [
+                        'min' => 0,
+                        'max' => 100,
+                        'step' => 1,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 216,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .trp-ls-shortcode-current-language' => 'width: {{SIZE}}{{UNIT}} !important',
+                    '{{WRAPPER}} .trp-ls-shortcode-language' => 'width: {{SIZE}}{{UNIT}} !important',
+                    '{{WRAPPER}} .trp-language-switcher' => 'width: {{SIZE}}{{UNIT}}',
+                ],
+                'condition' => [
+                    'show_as' => 'dropdown',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'dropdown_alignment',
+            [
+                'type' => \Elementor\Controls_Manager::CHOOSE,
+                'label' => esc_html__('Alignment', 'transtyle'),
+                'options' => [
+                    'left' => [
+                        'title' => esc_html__('Left', 'transtyle'),
+                        'icon' => 'eicon-text-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__('Center', 'transtyle'),
+                        'icon' => 'eicon-text-align-center',
+                    ],
+                    'right' => [
+                        'title' => esc_html__('Right', 'transtyle'),
+                        'icon' => 'eicon-text-align-right',
+                    ]
+                ],
+                'default' => 'left',
+                'selectors' => [
+                    '{{WRAPPER}} .trp-ls-shortcode-current-language' => 'text-align: {{VALUE}}',
+                    '{{WRAPPER}} .trp-ls-shortcode-language' => 'text-align: {{VALUE}}',
+                ],
+                'condition' => [
+                    'show_as' => 'dropdown',
+                ],
+            ],
+        );
+
         $this->add_control(
             'hr',
             [

@@ -1,2 +1,0 @@
-# translatestyler-translatepress-elementor-widget
- 
