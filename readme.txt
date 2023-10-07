@@ -1,4 +1,4 @@
-===  Plugin Name: Translatestyler - Elementor Widget for Translatpress ===
+===  Plugin Name:Translatestyler - Elementor Widget for TranslatePress ===
 
 Contributors: dansart
 Donate link: https://paypal.me/dansart13
@@ -7,7 +7,7 @@ Requires at least: 5.4.0
 Tested up to: 6.3.1
 
 Requires PHP: 7.4
-Stable tag: 0.9
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,5 +31,8 @@ Helps you style the TranslatePress menu. You can add it as a regular Elementor w
 1. The Settings menu in Elementor
 
 == Changelog ==
+= 1.0 - 2023.10.07 =
+* Added Controls: List elements distance, dropdown width, dropdown alignment, dropdown border style
+
 = 0.9 =
 * Initial release

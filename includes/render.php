@@ -3,7 +3,7 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
-if(!is_plugin_active('translatepress-multilingual/index.php')){
+if(function_exists('is_plugin_active') AND !is_plugin_active('translatepress-multilingual/index.php')){
     echo __('This Widget requires TranslatePress to be installed','transtyle');
     return;
 }
@@ -20,11 +20,8 @@ $template_file = '';
 if ($this->get_settings_for_display('show_as') === 'list') {
     $template_file = 'language-switcher-shortcode-list.php';
 }
-
 ?>
 
 <div class="translatestyler-container <?php echo implode(' ', $classes) ?>">
-    <?php //echo do_shortcode('[language-switcher]'); 
-    ?>
     <?php echo $styler->get_language_switcher([], $template_file, $this); ?>
 </div>
